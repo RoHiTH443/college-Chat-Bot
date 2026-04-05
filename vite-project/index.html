@@ -2,9 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/png" href="https://static.vecteezy.com/system/resources/thumbnails/045/548/962/small_2x/3d-artificial-intelligence-chatbot-orange-on-transparent-background-free-png.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vite-project</title>
+    <title>ChatBot</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1152d4',
+              secondary: '#0a3a94',
+            },
+            fontFamily: {
+              sans: ['Inter', 'Lexend', 'sans-serif'],
+            },
+          },
+        },
+      }
+    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   </head>
   <body>
     <div id="root"></div>

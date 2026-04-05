@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
+import * as api from './api.js';
 
 // Icon Components (inline SVG)
 const Eye = () => (
@@ -64,7 +66,8 @@ const CheckCircle = () => (
 );
 
 export default function LoginPage() {
-  const [role, setRole] = useState(null); // 'student', 'admin', or null
+  const navigate = useNavigate();
+  const [role, setRole] = useState('student');
   const [showPassword, setShowPassword] = useState(false);
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
@@ -74,375 +77,263 @@ export default function LoginPage() {
 
   const validateForm = () => {
     const newErrors = {};
-    
     if (!userId.trim()) {
       newErrors.userId = role === 'student' ? 'Student ID is required' : 'Admin ID is required';
     }
     if (!password.trim()) {
       newErrors.password = 'Password is required';
-    }
-    if (password.length < 6) {
+    } else if (password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters';
     }
-    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-
+    if (!validateForm()) return;
     setLoading(true);
-    setTimeout(() => {
-      console.log(`${role} login attempt:`, { userId, password, rememberMe });
-      alert(`Welcome ${role === 'student' ? 'Student' : 'Admin'}! ${userId}`);
+    setErrors({});
+    try {
+      const data = await api.auth.login(userId, password);
+      api.saveSession(data.token, data.user);
+      navigate(data.user.role === 'admin' ? '/admin/dashboard' : '/dashboard');
+    } catch (err) {
+      setErrors({ general: err.message || 'Invalid credentials. Please try again.' });
+    } finally {
       setLoading(false);
-      setUserId('');
-      setPassword('');
-      setRememberMe(false);
-    }, 1500);
+    }
   };
 
-  // Role Selection Screen
-  if (!role) {
-    return (
-      <div className="role-selection-container">
-        <div className="role-content">
-          <div className="role-header">
-            <h1 className="role-title">College Portal</h1>
-            <p className="role-subtitle">Select your role to continue</p>
+  const handleTabChange = (newRole) => {
+    if (newRole === role) return;
+    setRole(newRole);
+    setErrors({});
+    setUserId('');
+    setPassword('');
+    setShowPassword(false);
+  };
+
+  const isStudent = role === 'student';
+
+  return (
+    <div className="sl-container">
+
+      {/* ── Left Section 60% ── */}
+      <div className={`sl-left${isStudent ? '' : ' sl-left-admin'}`}>
+        <div className={`sl-left-overlay${isStudent ? '' : ' sl-left-overlay-admin'}`} />
+
+        <div className="sl-left-content">
+          <div className="sl-badge">
+            {isStudent ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <rect x="3" y="11" width="18" height="10" rx="2"/>
+                <path d="M9 11V7a3 3 0 0 1 6 0v4"/>
+                <circle cx="9" cy="16" r="1" fill="currentColor"/>
+                <circle cx="15" cy="16" r="1" fill="currentColor"/>
+                <path d="M12 2v3"/>
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            )}
+            <span>{isStudent ? 'AI-Powered Campus Support' : 'Secure Admin Access'}</span>
           </div>
 
-          <div className="role-cards">
-            {/* Student Card */}
-            <div 
-              className="role-card student-card"
-              onClick={() => setRole('student')}
-            >
-              <div className="role-icon-wrapper student">
-                <GraduationCap />
-              </div>
-              <h3 className="role-card-title">Student Login</h3>
-              <p className="role-card-desc">Access your courses, grades, and student resources</p>
-              <div className="role-card-arrow">
-                <ArrowRight />
-              </div>
+          <h1 className="sl-heading">
+            {isStudent ? (
+              <>College FAQ <br /><span className="sl-heading-accent">ChatBot</span></>
+            ) : (
+              <>Administrative <br /><span className="sl-heading-accent sl-heading-accent-admin">Control Panel</span></>
+            )}
+          </h1>
+
+          <p className="sl-desc">
+            {isStudent
+              ? 'Access student resources, schedules, and instant answers through our sophisticated AI chatbot. Designed to streamline your academic journey.'
+              : 'Manage students, courses, faculty, grades, and all institutional operations from a unified dashboard with advanced analytics and reporting tools.'}
+          </p>
+
+          <div className="sl-stats">
+            <div className="sl-stat">
+              <span className="sl-stat-num">{isStudent ? '15k+' : '500+'}</span>
+              <span className="sl-stat-label">{isStudent ? 'Active Students' : 'Managed Users'}</span>
             </div>
-
-            {/* Admin Card */}
-            <div 
-              className="role-card admin-card"
-              onClick={() => setRole('admin')}
-            >
-              <div className="role-icon-wrapper admin">
-                <ShieldAdmin />
-              </div>
-              <h3 className="role-card-title">Admin Login</h3>
-              <p className="role-card-desc">Manage students, courses, and system settings</p>
-              <div className="role-card-arrow">
-                <ArrowRight />
-              </div>
+            <div className="sl-stat-divider" />
+            <div className="sl-stat">
+              <span className="sl-stat-num">{isStudent ? '24/7' : '99.9%'}</span>
+              <span className="sl-stat-label">{isStudent ? 'AI Assistance' : 'System Uptime'}</span>
             </div>
           </div>
+        </div>
 
-          <div className="role-footer">
-            <p>© 2026 University Portal. All rights reserved.</p>
-          </div>
+        <div className="sl-left-footer">
+          <p>© 2026 University {isStudent ? 'Student' : 'Admin'} Portal. All rights reserved.</p>
         </div>
       </div>
-    );
-  }
 
-  // Student Login Screen
-  if (role === 'student') {
-    return (
-      <div className="login-container student-login">
-        {/* Left Section */}
-        <div className="left-section student-section">
-          <div className="left-content">
-            <div className="badge">
-              <CheckCircle />
-              <span>AI-Powered Campus Support</span>
-            </div>
+      {/* ── Right Section 40% ── */}
+      <div className="sl-right">
+        <div className="sl-form-wrap">
 
-            <h1 className="main-heading">College FAQ ChatBot</h1>
-
-            <p className="description">
-              Access your student dashboard, check grades, manage courses, and connect with campus resources. Everything you need for a successful university experience.
-            </p>
-
-            <div className="statistics">
-              <div className="stat-item">
-                <div className="stat-number">15k+</div>
-                <div className="stat-label">Active Students</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">24/7</div>
-                <div className="stat-label">AI Assistance</div>
-              </div>
-            </div>
-
-            <div className="left-footer">
-              <p>© 2026 University Student Portal. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Section */}
-        <div className="right-section student-right">
-          <div className="login-card student-card-form">
-            <button 
-              className="back-button"
-              onClick={() => setRole(null)}
+          {/* Tab Switcher */}
+          <div className="sl-tabs">
+            <button
+              type="button"
+              className={`sl-tab${isStudent ? ' sl-tab-active' : ''}`}
+              onClick={() => handleTabChange('student')}
             >
-              <ArrowLeft /> Back
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M22 10v6m0 0l-8.97 4.486a2 2 0 01-1.796.29m10.766-4.776l-8.97 4.486a2 2 0 01-1.796.29M2 10v6m0 0l8.97 4.486a2 2 0 001.796.29m-10.766-4.776l8.97 4.486a2 2 0 001.796.29M6 10L12 7m0 0l6-3m-6 3v3m0 0l6 3"/>
+              </svg>
+              Student
             </button>
+            <button
+              type="button"
+              className={`sl-tab${!isStudent ? ' sl-tab-active sl-tab-admin-active' : ''}`}
+              onClick={() => handleTabChange('admin')}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              Admin
+            </button>
+          </div>
 
-            <div className="card-icon student-icon">
-              <GraduationCap />
-            </div>
+          {/* Role Icon */}
+          <div className={`sl-school-icon${isStudent ? '' : ' sl-school-icon-admin'}`}>
+            {isStudent ? <GraduationCap /> : <ShieldAdmin />}
+          </div>
 
-            <h2 className="card-title">Welcome Back, Student</h2>
+          <h2 className="sl-title">Welcome Back</h2>
+          <p className="sl-subtitle">
+            {isStudent
+              ? 'Please enter your credentials to access the portal.'
+              : 'Secure authentication required for administrative access.'}
+          </p>
 
-            <p className="card-subtitle">
-              Enter your credentials to access the student portal.
-            </p>
+          <form onSubmit={handleSubmit} className="sl-form">
 
-            <form onSubmit={handleSubmit} className="login-form">
-              <div className="form-group">
-                <label htmlFor="studentId">Student ID</label>
-                <div className="input-wrapper">
-                  <Mail className="input-icon" />
-                  <input
-                    type="text"
-                    id="studentId"
-                    placeholder="Enter your student ID"
-                    value={userId}
-                    onChange={(e) => setUserId(e.target.value)}
-                    className={`form-input ${errors.userId ? 'input-error' : ''}`}
-                  />
-                </div>
-                {errors.userId && (
-                  <span className="error-message">{errors.userId}</span>
-                )}
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <div className="input-wrapper">
-                  <Lock className="input-icon" />
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    id="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className={`form-input ${errors.password ? 'input-error' : ''}`}
-                  />
-                  <button
-                    type="button"
-                    className="toggle-password"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? <EyeOff /> : <Eye />}
-                  </button>
-                </div>
-                {errors.password && (
-                  <span className="error-message">{errors.password}</span>
-                )}
-              </div>
-
-              <div className="form-footer">
-                <label className="checkbox-label">
-                  <input
-                    type="checkbox"
-                    checked={rememberMe}
-                    onChange={(e) => setRememberMe(e.target.checked)}
-                    className="checkbox-input"
-                  />
-                  <span>Remember me</span>
-                </label>
-                <a href="#" className="forgot-password">
-                  Forgot Password?
-                </a>
-              </div>
-
-              <button
-                type="submit"
-                className={`sign-in-button student-btn ${loading ? 'loading' : ''}`}
-                disabled={loading}
-              >
-                {loading ? (
+            {/* ID Field */}
+            <div className="sl-float-group">
+              <input
+                type="text"
+                id="sl-userId"
+                placeholder=" "
+                value={userId}
+                onChange={(e) => setUserId(e.target.value)}
+                className={`sl-float-input${errors.userId ? ' sl-input-error' : ''}`}
+              />
+              <label htmlFor="sl-userId" className="sl-float-label">
+                {isStudent ? (
                   <>
-                    <span className="spinner"></span>
-                    Signing in...
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8l-2 4h12l-2-4z"/></svg>
+                    Student ID
                   </>
                 ) : (
                   <>
-                    Sign In
-                    <ArrowRight />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Admin ID
                   </>
                 )}
+              </label>
+              {errors.userId && <span className="sl-error">{errors.userId}</span>}
+            </div>
+
+            {/* Password Field */}
+            <div className="sl-float-group">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                id="sl-password"
+                placeholder=" "
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className={`sl-float-input${errors.password ? ' sl-input-error' : ''}`}
+              />
+              <label htmlFor="sl-password" className="sl-float-label">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                {isStudent ? 'Password' : 'Master Password'}
+              </label>
+              <button type="button" className="sl-toggle-pw" onClick={() => setShowPassword(!showPassword)}>
+                {showPassword ? <EyeOff /> : <Eye />}
               </button>
-            </form>
-
-            <div className="register-section">
-              <p>
-                New to the portal?{' '}
-                <a href="#" className="register-link">
-                  Register Now
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Admin Login Screen
-  if (role === 'admin') {
-    return (
-      <div className="login-container admin-login">
-        {/* Left Section */}
-        <div className="left-section admin-section">
-          <div className="left-content">
-            <div className="badge admin-badge">
-              <CheckCircle />
-              <span>Secure Admin Access</span>
+              {errors.password && <span className="sl-error">{errors.password}</span>}
             </div>
 
-            <h1 className="main-heading admin-heading">Administrative Control Panel</h1>
+            {/* Remember / Forgot */}
+            <div className="sl-form-footer">
+              <label className="sl-checkbox-label">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="sl-checkbox"
+                />
+                <span>{isStudent ? 'Remember me' : 'Trust this device'}</span>
+              </label>
+              <a href="#" className={`sl-forgot${isStudent ? '' : ' sl-forgot-admin'}`}>
+                {isStudent ? 'Forgot Password?' : 'Need help?'}
+              </a>
+            </div>
 
-            <p className="description admin-desc">
-              Manage students, courses, faculty, grades, and all institutional operations from a unified dashboard with advanced analytics and reporting tools.
-            </p>
-
-            <div className="statistics admin-stats">
-              <div className="stat-item">
-                <div className="stat-number">500+</div>
-                <div className="stat-label">Managed Users</div>
+            {/* General API error */}
+            {errors.general && (
+              <div style={{ color: '#ef4444', fontSize: '0.82rem', marginTop: '-4px', padding: '8px 12px', background: 'rgba(239,68,68,0.08)', borderRadius: '8px', border: '1px solid rgba(239,68,68,0.25)' }}>
+                {errors.general}
               </div>
-              <div className="stat-item">
-                <div className="stat-number">99.9%</div>
-                <div className="stat-label">System Uptime</div>
-              </div>
-            </div>
+            )}
 
-            <div className="left-footer">
-              <p>© 2026 University Admin Portal. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Section */}
-        <div className="right-section admin-right">
-          <div className="login-card admin-card-form">
-            <button 
-              className="back-button admin-back"
-              onClick={() => setRole(null)}
+            {/* Submit */}
+            <button
+              type="submit"
+              className={`sl-submit-btn${isStudent ? '' : ' sl-submit-admin'}${loading ? ' sl-loading' : ''}`}
+              disabled={loading}
             >
-              <ArrowLeft /> Back
+              {loading ? (
+                <><span className="spinner" /> {isStudent ? 'Signing in...' : 'Authenticating...'}</>
+              ) : (
+                <>
+                  {isStudent ? 'Sign In' : 'Access Portal'}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                    <polyline points="10 17 15 12 10 7"/>
+                    <line x1="15" y1="12" x2="3" y2="12"/>
+                  </svg>
+                </>
+              )}
             </button>
+          </form>
 
-            <div className="card-icon admin-icon">
-              <ShieldAdmin />
+          {/* Register / Security Notice */}
+          {isStudent ? (
+            <div className="sl-register">
+              <p>New to the portal? <a href="#" className="sl-register-link">Register Now</a></p>
             </div>
-
-            <h2 className="card-title admin-title">Admin Portal</h2>
-
-            <p className="card-subtitle admin-subtitle">
-              Secure authentication required for administrative access.
-            </p>
-
-            <form onSubmit={handleSubmit} className="login-form">
-              <div className="form-group">
-                <label htmlFor="adminId">Admin ID</label>
-                <div className="input-wrapper">
-                  <Mail className="input-icon" />
-                  <input
-                    type="text"
-                    id="adminId"
-                    placeholder="Enter your admin ID"
-                    value={userId}
-                    onChange={(e) => setUserId(e.target.value)}
-                    className={`form-input admin-input ${errors.userId ? 'input-error' : ''}`}
-                  />
-                </div>
-                {errors.userId && (
-                  <span className="error-message">{errors.userId}</span>
-                )}
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="adminPassword">Master Password</label>
-                <div className="input-wrapper">
-                  <Lock className="input-icon" />
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    id="adminPassword"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className={`form-input admin-input ${errors.password ? 'input-error' : ''}`}
-                  />
-                  <button
-                    type="button"
-                    className="toggle-password"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? <EyeOff /> : <Eye />}
-                  </button>
-                </div>
-                {errors.password && (
-                  <span className="error-message">{errors.password}</span>
-                )}
-              </div>
-
-              <div className="form-footer">
-                <label className="checkbox-label admin-checkbox">
-                  <input
-                    type="checkbox"
-                    checked={rememberMe}
-                    onChange={(e) => setRememberMe(e.target.checked)}
-                    className="checkbox-input"
-                  />
-                  <span>Trust this device</span>
-                </label>
-                <a href="#" className="forgot-password">
-                  Need help?
-                </a>
-              </div>
-
-              <button
-                type="submit"
-                className={`sign-in-button admin-btn ${loading ? 'loading' : ''}`}
-                disabled={loading}
-              >
-                {loading ? (
-                  <>
-                    <span className="spinner"></span>
-                    Authenticating...
-                  </>
-                ) : (
-                  <>
-                    Access Portal
-                    <ArrowRight />
-                  </>
-                )}
-              </button>
-            </form>
-
-            <div className="security-notice">
-              <p>🔒 All admin activities are logged and monitored for security.</p>
+          ) : (
+            <div className="sl-security-notice">
+              {/* <p>🔒 All admin activities are logged and monitored for security.</p> */}
             </div>
+          )}
+
+          {/* Footer Links */}
+          <div className="sl-footer-links">
+            <a href="#" className="sl-footer-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              Help Center
+            </a>
+            <a href="#" className="sl-footer-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Privacy
+            </a>
+            <a href="#" className="sl-footer-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              English (US)
+            </a>
           </div>
+
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
