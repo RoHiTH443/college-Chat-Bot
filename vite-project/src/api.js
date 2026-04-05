@@ -1,6 +1,5 @@
-// Centralized API client — all requests go through /api (proxied to http://localhost:5000)
-
-const BASE = '/api';
+// Centralized API client with configurable backend endpoint via Vite env.
+const BASE = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/$/, '');
 
 const getToken = () => localStorage.getItem('token');
 
