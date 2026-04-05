@@ -1,0 +1,1115 @@
+
+
+=== DOCUMENT START ===
+Title: gg2
+Category: Course Material
+File Name: ROHITH_M_7376231EE147_BPI.pdf
+Description: gg2
+Content:
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Business Process Innovation (BPI) Industry Visit
+Submitted by
+ROHITH M (7376231EE147)
+BANNARI AMMAN INSTITUTE OF TECHNOLOGY –
+INSTITUTION’S INNOVATION COUNCIL
+&
+Industry Exploration and Collaboration Cell
+Duration: 28/03/2026 – 03/04/2026
+
+-- 1 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+ABOUT THE STUDENT
+S.NO Description Details
+1. Name of the student ROHITH M
+2. Register Number 7376231EE147
+3. Department EEE
+4. Year of study III
+5. Contact Number 7418568844
+6. Mail id Rohith.ee23@bitsathy.ac.in
+7. Location Karur
+Local Context – BPI Industry Visit (Basic Details)
+Parameter Details
+Organization / Industry
+Name
+DAR Jewellers
+Location (City / Area) Sathymangalam
+Date of Visit 02-04-2026
+Time of Visit 04:00PM - 05:00PM
+Department / Unit Visited Sales, Billing and Inventory Department
+Industry Contact Persons Parimala (Owner)
+Sarathy (Employee)
+
+-- 2 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Photographic Evidence https://drive.google.com/drive/folders/1zQ8D9nKtvo-
+tIxw5LicdORpwpqXZfN2l?usp=sharing
+Relevant SDG Aligned with Industry Operations:SDG 8 – Decent Work & Economic
+Growth
+DAY 1 ORIENTATION, OVERVIEW & THE BIG PICTURE
+BPI – SECTION 1 BUSINESS OVERVIEW & END-TO-END FLOW
+1.1 Core Purpose
+Product/Servic
+e
+Category Variants Problem
+Solved
+Customer
+Impact
+Gold Luxury Retail Chains Provides
+trusted
+jewellery for
+occasions and
+investment
+Emotional
+value + long-
+term asset
+Diamond Luxury Retail Rings Provides
+trusted
+jewellery for
+occasions and
+investment
+Emotional
+value + long-
+term asset
+Silver Luxury Retail Bracelets Provides
+trusted
+jewellery for
+occasions and
+investment
+Emotional
+value + long-
+term asset
+
+-- 3 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Category: ☐ Manufacturing ☑ Service ☑ Trading ☐ Hybrid
+Additional Remarks: nil
+1.2 Revenue Model
+Revenue
+Source
+Description Pricing
+Method
+Frequency % Contribution
+Gold Jewellery Main sales Based on gold
+rate + making
+charges
+Daily 60%
+Diamond
+Jewellery
+Premium items Fixed + design
+cost
+Weekly 25%
+Silver Items Small
+purchases
+Fixed price Daily 10%
+Repair/Exchan
+ge
+Old gold
+exchange
+Market rate Occasional 5%
+Main Revenue Driver:Gold Jewellery Sales
+Additional Remarks: nil
+1.3 Customer Profile
+Segment Characteristics Needs Source Channel
+Wedding Buyers High budget Bridal sets Direct visit
+Middle-class
+families
+Budget conscious Daily wear
+jewellery
+Walk-in
+Investors Gold buyers Value retention Referral
+Youth Trendy buyers Lightweight designs Social media
+Customer Type: ☐ B2B ☑ B2C ☐ Both
+
+-- 4 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Additional Remarks: nil
+1.4 Department Map
+Department Role Depends On Outputs To
+Procurement Purchase gold Suppliers Inventory
+Inventory Stock management Procurement Sales
+Sales Customer handling Inventory Billing
+Billing Invoice generation Sales Customer
+Accounts Financial records Billing Owner
+Draw Flow Diagram Below:
+Suppliers
+↓
+Procurement
+↓
+Inventory
+↓
+Sales
+↓
+Billing
+↓
+Customer
+↓
+Accounts
+
+-- 5 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+↓
+Owner
+Additional Remarks: nil
+1.5 Single Unit Trace
+Step No Departmen
+t
+Activity Input Output Time
+Taken
+Waiting
+Time
+1 Entrance /
+Reception
+Customer
+enters
+store &
+greeted
+Customer
+visit
+Customer
+directed
+to sales
+staff
+1 min 0 min
+2 Sales Understa
+nding
+customer
+requirem
+ent
+Customer
+need
+Suitable
+jewellery
+options
+3–5 mins 1 min
+3 Sales Showing
+jewellery
+items
+Inventory
+stock
+Selected
+items for
+trial
+10–15
+mins
+2–3 mins
+4 Sales Final
+product
+selection
+Customer
+choice
+Selected
+jewellery
+5 mins 1 min
+5 Inventory Product
+taken for
+weighing
+Selected
+item
+Weight
+details
+2–3 mins 1 min
+6 Billing Price
+calculatio
+n (gold
+rate +
+Weight +
+current
+gold rate
+Final
+price
+3–4 mins 2 mins
+
+-- 6 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+making
+charges)
+7 Billing Invoice
+generatio
+n
+Product +
+price
+details
+Bill 2 mins 1 min
+8 Payment Payment
+processin
+g
+(cash/car
+d/UPI)
+Bill
+amount
+Payment
+confirmat
+ion
+2–5 mins 1–2 mins
+9 Packaging Jewellery
+packing
+Purchase
+d product
+Packed
+item
+2 mins 0 min
+10 Exit Product
+handover
+&
+customer
+exit
+Packed
+item
+Complete
+d
+purchase
+1 min 0 min
+Additional Remarks:
+Maximum time is spent in product selection stage
+1.6 Time at Each Step
+Covered in above table
+Additional Remarks:
+● The maximum time consumption occurs during product selection, as customers
+take time to compare designs.
+● Waiting time is minimal at entry and exit but slightly higher during billing and
+price calculation.
+● The process is semi-manual, which may increase processing time during peak
+hours.
+
+-- 7 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+● Overall, the average total time per customer is approximately 25–40 minutes
+depending on purchase type.
+1.7 Biggest Risk Point
+Identify the most critical risk in the process:
+Gold price fluctuation
+Reason:
+Direct impact on pricing and profit
+Additional Remarks:nil
+1.8 Most Critical Task
+Identify the most important task affecting success:
+Accurate billing & weight measurement
+Reason:
+Ensures trust and avoids financial loss
+Additional Remarks:nil
+
+-- 8 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+BPI – SECTION 2 (ROUTINE TASKS & DEPENDENCIES)
+2.1 Daily Tasks
+Task Time of
+Day
+System/Memor
+y
+Owner Output Risk if
+Missed
+Backu
+p
+Availa
+ble
+(Y/N)
+Store
+opening
+Morning
+(9:30
+AM)
+Routine /
+Checklist
+Manager Store
+ready for
+customers
+Delay in
+sales
+Y
+Inventor
+y check
+Morning Manual +
+Inventory
+system
+Staff Updated
+stock
+status
+Stock
+mismatch
+Y
+Custom
+er
+handling
+Through
+out day
+Staff experience
+(Memory)
+Sales
+staff
+Customer
+satisfactio
+n & sales
+Lost sales Y
+Billing During
+purchas
+e
+Billing software Cashier Invoice
+generated
+Revenue
+loss
+Y
+Product
+display
+arrange
+ment
+Morning
+&
+Afterno
+on
+Visual check Staff Attractive
+display
+Reduced
+customer
+interest
+Y
+Gold
+rate
+update
+Morning Market data
+system
+Manager Updated
+pricing
+Wrong
+pricing
+Y
+
+-- 9 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Cleaning
+&
+mainten
+ance
+Morning Routine Staff Clean
+showroom
+Poor
+customer
+impressio
+n
+Y
+Cash
+handling
+&
+closing
+Evening Manual +
+system
+Cashier Daily sales
+record
+Financial
+mismatch
+Y
+Additional Remarks:Billing and customer handling are the most critical daily operations
+2.2 Weekly / Monthly Tasks
+Task Frequenc
+y
+System/Memor
+y
+Owner Output Risk if
+Missed
+Backup
+Available
+(Y/N)
+Stock
+auditin
+g
+Weekly Inventory
+system +
+manual
+Manager Accura
+te
+stock
+record
+Stock
+loss /
+mismatc
+h
+Y
+Gold
+purchas
+e
+plannin
+g
+Weekly Market analysis Owner /
+Manager
+Stock
+repleni
+shmen
+t
+Shortage
+of
+designs
+Y
+Sales
+report
+analysis
+Weekly Billing software Manager Perfor
+mance
+insight
+s
+Poor
+decision
+making
+Y
+Staff
+perfor
+Monthly Observation +
+records
+Manager Improv
+ed
+Reduced
+efficienc
+y
+Y
+
+-- 10 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+mance
+review
+produc
+tivity
+Financi
+al
+account
+ing
+Monthly Accounting
+system
+Accountan
+t
+Profit/l
+oss
+statem
+ent
+Financial
+errors
+Y
+Vendor
+paymen
+t
+settlem
+ent
+Monthly Accounts
+system
+Manager Vendo
+r
+relatio
+nship
+mainta
+ined
+Supplier
+issues
+Y
+New
+design
+procure
+ment
+Monthly Market trend
+analysis
+Owner Updat
+ed
+produc
+t
+collecti
+on
+Loss of
+custome
+rs
+Y
+Mainte
+nance
+&
+security
+check
+Monthly Routine Staff/Man
+ager
+Safe
+enviro
+nment
+Theft/se
+curity
+risk
+Y
+Additional Remarks:
+Monthly tasks focus on financial management and business growth
+
+-- 11 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+2.3 System vs Memory Mapping
+Task Is Documented
+(Y/N)
+Where Stored Access Level Error Risk
+Billing Y Billing
+software
+Cashier /
+Manager
+Low
+Inventory
+records
+Y Inventory
+system +
+register
+Manager /
+Staff
+Medium
+Customer
+handling
+N Staff memory Sales staff High
+Gold rate
+update
+Y Market system
+/ online
+Manager Low
+Cash handling Y Cash register +
+system
+Cashier Medium
+Product
+knowledge
+N Staff
+experience
+Sales staff High
+Additional Remarks:
+Tasks stored in systems have lower error risk, while memory-based tasks are more
+error-prone
+2.4 Task Ownership
+Task Primary Owner Secondary
+Owner
+Approval
+Required (Y/N)
+Escalation Path
+Store opening Manager Staff N Owner
+Inventory
+check
+Staff Manager Y Manager →
+Owner
+
+-- 12 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Customer
+handling
+Sales Staff Manager N Manager
+Billing Cashier Manager Y Manager →
+Owner
+Gold purchase Manager Owner Y Owner
+Cash handling Cashier Manager Y Manager →
+Owner
+Additional Remarks:
+Escalation generally follows a hierarchical structure (Staff → Manager → Owner)
+2.5 Impact if Task is Missed
+Task Immediate
+Impact
+Downstream
+Impact
+Customer
+Impact
+Recovery Time
+Store opening Store not
+ready
+Delay in daily
+operations
+Customers
+leave
+1–2 hours
+Inventory
+check
+Stock
+mismatch
+Wrong product
+availability
+Customer
+dissatisfaction
+1 day
+Customer
+handling
+Poor
+interaction
+Reduced sales
+conversion
+Loss of trust Immediate /
+same day
+Billing Incorrect
+invoice
+Financial
+discrepancies
+Customer
+complaints
+Few hours
+Gold rate
+update
+Wrong pricing Profit loss /
+customer
+confusion
+Loss of
+credibility
+Same day
+Cash handling Cash mismatch Accounting
+issues
+Trust issues 1–2 days
+Additional Remarks:
+
+-- 13 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Some issues (like pricing errors) can damage customer trust permanently
+2.6 Dependency Risk (Key Person Absence)
+Task Key Person Can Others
+Perform (Y/N)
+Time to
+Substitute
+Risk Level
+(H/M/L)
+Store opening Manager Y Immediate Low
+Inventory
+check
+Staff Y Few hours Medium
+Customer
+handling
+Sales Staff Y Immediate Medium
+Billing Cashier Y 1–2 hours High
+Gold rate
+update
+Manager N 1 day High
+Cash handling Cashier Y Few hours High
+Overall Dependency Level: ☐ High ☑ Medium ☐ Low
+Additional Remarks:
+● Cross-training staff can reduce dependency risk significantly
+2.7 Handover Readiness
+Task Handover
+Document
+Exists (Y/N)
+Steps Clearly
+Defined (Y/N)
+Training
+Required
+Time to
+Handover
+Store opening Y Y Low Immediate
+Inventory
+check
+Y Y Medium Few hours
+
+-- 14 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Customer
+handling
+N N High 2–3 days
+Billing Y Y Medium 1 day
+Gold rate
+update
+Y Y Low Few hours
+Cash handling Y Y Medium 1 day
+Additional Remarks:
+Most operational tasks are documented and easy to transfer
+BPI – SECTION 3 (LEAD & ORDER CAPTURE SYSTEM)
+3.1 Inquiry Channels
+Channel Type
+(Online/Offline
+)
+Volume Handled By Recorded
+(Y/N)
+Risk
+Walk-in Offline High Sales staff N Missed
+customer
+preference
+Phone Offline Medium Reception N No follow-
+up
+WhatsApp Online Medium Sales team Y Delay in
+response
+Additional Remarks:Most inquiries are offline (walk-in based)
+
+-- 15 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+3.2 Recording System
+Channel Where
+Recorded
+Format
+(Digital/Manual
+)
+Accessible To Error Risk
+Walk-in Not recorded /
+register
+Manual Staff High
+Phone Not recorded Memory Staff High
+WhatsApp WhatsApp
+chat
+Digital Sales team Medium
+Additional Remarks:
+Heavy reliance on manual or memory-based recording
+3.3 Follow-up Process
+Stage Action Responsible
+Person
+Timeline System
+Used
+Miss Risk
+Inquiry Understand
+requiremen
+t
+Sales staff Immediate None Medium
+Suggestion Show
+designs
+Sales staff Same day Manual Low
+Follow-up Call/messag
+e customer
+Sales staff 1–2 days Phone/Wha
+tsApp
+High
+Additional Remarks:
+Follow-ups are not structured, leading to lost conversions
+
+-- 16 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+3.4 Lead/Order Tracking
+Lead ID Current
+Stage
+Tracking
+Method
+Updated
+(Y/N)
+Visibility Delay Risk
+Not
+maintained
+Inquiry/Pur
+chase
+Manual N Low High
+Not
+maintained
+Follow-up Memory N Low High
+Not
+maintained
+Converted Billing
+system
+Y Medium Low
+Additional Remarks:
+● High dependency on staff memory → high delay risk
+3.5 Lost Lead Evidence
+Has any lead/customer inquiry been missed?
+☑ Yes ☐ No
+If Yes, fill below:
+Case Channel Reason Missed Detected How Impact
+Customer
+inquiry
+Walk-in No follow-up Staff feedback Lost sale
+WhatsApp
+inquiry
+Online Delayed
+response
+Chat check Customer drop
+Additional Remarks:
+● Lack of follow-up leads to direct revenue loss
+
+-- 17 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+3.6 Conversion Gap
+Stage Drop-off % Reason Improvement
+Opportunity
+Inquiry → Visit 20% Lack of follow-up Reminder system
+Visit → Purchase 30% Price/design
+mismatch
+Better variety
+Follow-up →
+Conversion
+25% No structured
+tracking
+CRM system
+Additional Remarks:
+● Major drop-offs occur due to lack of follow-up and tracking
+3.7 Ideal Lead & Order System
+Describe ideal process flow:
+Inquiry → Digital entry → Product suggestion → Automated follow-up → Conversion →
+Feedback
+Key improvements needed:
+● Implement CRM system
+● Maintain digital lead database
+● Automated follow-up reminders
+● Track customer preferences
+Additional Remarks:
+A proper system can increase conversion rate and customer retention
+BPI – SECTION 4 (STAKEHOLDER INTERACTIONS)
+
+-- 18 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+4.1 Owner – Biggest Risk
+Owner Name Role Identified Risk Why Critical Impact Level
+Store Owner Business Head Gold price
+fluctuation
+Directly affects
+pricing and
+profit margin
+High
+Store Owner Decision
+Maker
+Inventory
+mismanageme
+nt
+Leads to dead
+stock or
+shortage
+High
+Additional Remarks:
+Owner is highly concerned about market price changes and inventory control
+4.2 Owner – Pride vs Concern
+Aspect Pride Area Concern Area Reason
+Product quality High purity gold High pricing
+competition
+Market
+competition
+Customer trust Loyal customers Customer retention Increasing
+alternatives
+Business growth Brand reputation Sales fluctuation Market
+dependency
+Additional Remarks:
+● Major concern is competition and price sensitivity
+4.3 Manager – Resource Constraint
+Manager
+Name
+Department Resource
+Constraint
+Impact Frequency
+
+-- 19 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Store Manager Sales Limited staff
+during peak
+hours
+Delay in
+service
+High
+Store Manager Inventory Limited stock
+of trending
+designs
+Lost sales Medium
+Additional Remarks:
+● Staff shortage during peak hours impacts customer experience
+4.4 Manager – Operational Gap
+Process Gap Identified Cause Impact Suggested Fix
+Billing Delay in billing Manual
+calculation
+Customer
+waiting
+Automate
+billing
+Inventory
+tracking
+Inaccurate
+stock
+Manual
+updates
+Stock
+mismatch
+Digital
+inventory
+Follow-up No proper
+tracking
+No CRM
+system
+Lost customers Implement
+CRM
+Additional Remarks:
+Most gaps are due to lack of automation
+4.5 Frontline Worker – Shortcut Observation
+Worker Role Task Shortcut Taken Reason Risk Level
+Sales staff Customer
+handling
+Skips detailed
+explanation
+Time saving Medium
+Staff Inventory
+check
+Rough
+counting
+Work pressure High
+
+-- 20 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Cashier Billing Mental
+calculation
+Speed High
+Additional Remarks:
+● Shortcuts are taken due to workload and time pressure
+4.6 Worker – Frustration
+Worker Role Task Frustration Cause Impact
+Sales staff Customer
+handling
+Difficult
+Customers
+High
+expectations
+Stress
+Cashier Billing Repetitive
+work
+Manual
+process
+Errors
+Staff Inventory Time-
+consuming
+Manual system Delay
+Additional Remarks:
+Manual processes increase stress and inefficiency
+4.7 Unimplemented Ideas
+Stakeholder Idea Why Not
+Implemented
+Feasibility Expected
+Impact
+Manager Barcode
+system
+Cost High Reduce errors
+Staff Digital
+inventory
+Lack of training Medium Better tracking
+Owner CRM system Investment
+concern
+High Increase sales
+Additional Remarks:
+
+-- 21 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+● Most ideas are feasible but limited by cost and awareness
+4.8 Stakeholder Summary Insights
+Common patterns observed across stakeholders:
+● High dependency on manual work
+● Need for automation
+● Customer satisfaction is top priority
+Conflicts between stakeholders:
+Staff want easier systems vs owner cost concerns
+Alignment opportunities:
+Introduce low-cost digital tools
+Train staff for better efficiency
+Additional Remarks: nil
+13.10 Comparative Insight
+Compare with another similar business/process and identify differences:Organized
+jewellery retail chain (e.g., branded jewellery showroom)
+Additional Remarks:
+● Adopting digital systems can help DAR Jewellers compete with organized retail
+chains
+● Even small improvements like barcode inventory and CRM can significantly
+improve performance
+● Technology adoption will enhance accuracy, speed, and customer satisfaction
+Mandatory for all (Day 1/ Day 1+2/Day 1+2+3)
+
+-- 22 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+FINAL SUMMARY
+Top 3 Improvements:
+1.Implement Digital Inventory System (Barcode/RFID)
+2.Introduce CRM System for Customer & Lead Tracking
+3.Automate Billing with Live Gold Rate Integration
+Conclusion:
+The visit to DAR Jewellers showed a well-established business focused on quality and
+customer trust. However, reliance on manual processes leads to inefficiencies and
+missed opportunities. Implementing digital systems like inventory management, CRM,
+and automated billing can improve efficiency, accuracy, and overall business growth.
+Attachment Proofs:
+
+-- 23 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+
+-- 24 of 25 --
+
+BANNARI AMMAN INSTITUTE OF
+TECHNOLOGY
+&
+INSTITUTIONS INNOVATION COUNCIL
+Declaration
+I confirm that the data in this report was collected in person on 02/04/2026 at
+SATHYAMANGALAM and verified with the official mentioned above.
+All photographs were taken by me using my own device, and the names of individuals
+were recorded with their consent for academic purposes only.
+Name: ROHITH M
+Department: EEE - III
+Register No:7376231EE147
+Signature:
+Date: 02-04-2026
+
+-- 25 of 25 --
+=== DOCUMENT END ===
