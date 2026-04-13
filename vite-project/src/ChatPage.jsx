@@ -153,7 +153,7 @@ export default function ChatPage() {
 
     try {
       setIsSending(true);
-      const res = await fetch('/api/chat/message', {
+      const res = await fetch('https://college-chat-bot-z5sj.onrender.com/api/chat/message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

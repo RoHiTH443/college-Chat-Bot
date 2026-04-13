@@ -3,7 +3,7 @@ Library Hours
 - Saturday: 9:00 AM to 6:00 PM
 - Sunday: 10:00 AM to 4:00 PM
 
-     Deadlines (Computer Science Department)
+ Deadlines (Computer Science Department)
 - Merit-Based Excellence: October 15
 - Undergraduate Research: November 1
 - Diversity in Tech: December 10
@@ -13,6 +13,11 @@ Hostel Office Contact
 - Phone: +1 (555) 987-6543
 - Office Hours: Monday to Friday, 9:00 AM to 5:00 PM
 
+subject in s6
+-22EE601	POWER SYSTEMS PROTECTION AND SWITCHGEAR
+-22EE602	DIGITAL SIGNAL PROCESSING
+-22EE603	RENEWABLE AND DISTRIBUTED ENERGY SOURCES
+
 
 what is energy
 - it is nothing
@@ -21,3 +26,20 @@ Placement Support Desk
 - Email: placements@university.edu
 - Phone: +1 (555) 123-4567
 - Walk-in Hours: Monday to Friday, 10:00 AM to 4:00 PM
+
+my name 
+-rohith
+
+what is electricity
+-flow of elect0rons
+
+
+exam timetable
+-10-04-2026	Friday	CS101	Programming in C	10:00 – 1:00
+-12-04-2026	Sunday	MA102	Engineering Mathematics	10:00 – 1:00
+-15-04-2026	Wednesday	PH103	Physics	10:00 – 1:00
+-18-04-2026	Saturday	EC104	Basic Electronics	10:00 – 1:00
+-21-04-2026	Tuesday	CS105	Data Structures	10:00 – 1:00
+-24-04-2026	Friday	HS106	Communication Skills	10:00 – 1:00
+    
+
