@@ -3,7 +3,7 @@ import { clearSession } from './api.js';
 
 const navItems = [
   { icon: 'dashboard', label: 'Dashboard', path: '/admin/dashboard' },
-  { icon: 'upload_file', label: 'Upload Document', path: '/admin/upload' },
+  { icon: 'notes', label: 'Add Paragraph', path: '/admin/paragraph' },
   { icon: 'question_answer', label: 'Query', path: '/admin/queries', badge: '12' },
 ];
 

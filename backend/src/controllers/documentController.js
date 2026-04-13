@@ -6,6 +6,7 @@ const { PDFParse } = require('pdf-parse');
 const mammoth = require('mammoth');
 
 const DATA_DIR = path.join(__dirname, '../../data');
+const UPLOADS_DIR = path.join(__dirname, '../../uploads');
 const RAG_UPLOADS_FILE = path.join(DATA_DIR, 'uploaded-documents.txt');
 const ALLOWED_CATEGORIES = ['Course Material', 'Circular', 'Research Paper', 'Syllabus', 'Exam Schedule', 'Other'];
 const CATEGORY_MAP = {
@@ -67,7 +68,7 @@ async function appendDocumentToRagData({ title, category, description, originalN
     '\n\n=== DOCUMENT START ===',
     `Title: ${title}`,
     `Category: ${category}`,
-    `File Name: ${originalName}`,
+    `Source: ${originalName}`,
     description ? `Description: ${description}` : '',
     'Content:',
     safeContent,
@@ -79,44 +80,105 @@ async function appendDocumentToRagData({ title, category, description, originalN
   await fsp.appendFile(RAG_UPLOADS_FILE, block, 'utf8');
 }
 
+function buildParagraphTitle(paragraph) {
+  const firstSentence = (paragraph || '')
+    .trim()
+    .split(/[.!?]/)
+    .map((part) => part.trim())
+    .find(Boolean);
+
+  return (firstSentence || paragraph || 'Admin paragraph').slice(0, 80);
+}
+
+function slugifyFileName(value) {
+  return (value || 'paragraph')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 40) || 'paragraph';
+}
+
+async function saveParagraphAsTextFile(title, content) {
+  await fsp.mkdir(UPLOADS_DIR, { recursive: true });
+
+  const fileName = `${Date.now()}-${slugifyFileName(title)}.txt`;
+  const filePath = path.join(UPLOADS_DIR, fileName);
+  await fsp.writeFile(filePath, content, 'utf8');
+
+  const stats = await fsp.stat(filePath);
+  return {
+    fileName,
+    fileUrl: `/uploads/${fileName}`,
+    fileSize: stats.size,
+    mimeType: 'text/plain',
+  };
+}
+
 // POST /api/documents  (admin only)
 exports.uploadDocument = async (req, res, next) => {
   try {
-    if (!req.file) {
-      return res.status(400).json({ message: 'No file uploaded' });
-    }
+    const { title, category, description, content, paragraph, text, visibleToAll, requireSignature } = req.body;
+    const normalizedCategory = normalizeCategory(category) || 'Other';
+    const paragraphContent = (content || paragraph || text || description || '').trim();
 
-    const { title, category, description, visibleToAll, requireSignature } = req.body;
-    const normalizedCategory = normalizeCategory(category);
+    if (req.file) {
+      if (!title || !normalizeCategory(category)) {
+        fs.unlinkSync(req.file.path);
+        return res.status(400).json({ message: 'Title is required and category must be valid' });
+      }
 
-    if (!title || !normalizedCategory) {
-      // Remove the uploaded file if validation fails
-      fs.unlinkSync(req.file.path);
-      return res.status(400).json({ message: 'Title is required and category must be valid' });
-    }
+      try {
+        const extractedContent = await extractTextFromFile(req.file.path, req.file.mimetype);
+        await appendDocumentToRagData({
+          title,
+          category: normalizedCategory,
+          description: description || '',
+          originalName: req.file.originalname,
+          content: extractedContent,
+        });
+      } catch (ingestErr) {
+        console.error('RAG ingestion failed for uploaded document:', ingestErr.message);
+      }
 
-    // Ingest uploaded document content into RAG data folder.
-    try {
-      const extractedContent = await extractTextFromFile(req.file.path, req.file.mimetype);
-      await appendDocumentToRagData({
+      const doc = await Document.create({
         title,
         category: normalizedCategory,
         description: description || '',
-        originalName: req.file.originalname,
-        content: extractedContent,
+        fileName: req.file.originalname,
+        fileUrl: `/uploads/${req.file.filename}`,
+        fileSize: req.file.size,
+        mimeType: req.file.mimetype,
+        visibleToAll: visibleToAll === 'true',
+        requireSignature: requireSignature === 'true',
+        uploadedBy: req.user._id,
       });
-    } catch (ingestErr) {
-      console.error('RAG ingestion failed for uploaded document:', ingestErr.message);
+
+      return res.status(201).json({ document: doc });
     }
 
-    const doc = await Document.create({
-      title,
+    if (!paragraphContent) {
+      return res.status(400).json({ message: 'Paragraph content is required' });
+    }
+
+    const paragraphTitle = title && title.trim() ? title.trim() : buildParagraphTitle(paragraphContent);
+    const savedFile = await saveParagraphAsTextFile(paragraphTitle, paragraphContent);
+
+    await appendDocumentToRagData({
+      title: paragraphTitle,
       category: normalizedCategory,
-      description: description || '',
-      fileName: req.file.originalname,
-      fileUrl: `/uploads/${req.file.filename}`,
-      fileSize: req.file.size,
-      mimeType: req.file.mimetype,
+      description: paragraphContent,
+      originalName: savedFile.fileName,
+      content: paragraphContent,
+    });
+
+    const doc = await Document.create({
+      title: paragraphTitle,
+      category: normalizedCategory,
+      description: paragraphContent,
+      fileName: savedFile.fileName,
+      fileUrl: savedFile.fileUrl,
+      fileSize: savedFile.fileSize,
+      mimeType: savedFile.mimeType,
       visibleToAll: visibleToAll === 'true',
       requireSignature: requireSignature === 'true',
       uploadedBy: req.user._id,

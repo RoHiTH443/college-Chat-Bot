@@ -198,7 +198,7 @@ export default function AdminDashboard() {
               <h3 className="font-bold text-lg text-gray-900 mb-4">Quick Actions</h3>
               <div className="flex flex-col gap-3">
                 {[
-                  { icon: 'upload_file', label: 'Upload PDF', path: '/admin/upload' },
+                  { icon: 'notes', label: 'Add Paragraph', path: '/admin/paragraph' },
                   { icon: 'question_answer', label: 'View Queries', path: '/admin/queries' },
                 ].map(({ icon, label, path }) => (
                   <button
@@ -211,7 +211,7 @@ export default function AdminDashboard() {
                     <span className="material-symbols-outlined mb-2" style={{ fontSize: 24 }}>{icon}</span>
                     <span className="text-xs font-bold text-gray-700">{label}</span>
                   </button>
-                ))}
+                  ))}
               </div>
             </div>
           </div>

@@ -32,7 +32,7 @@ const documentSchema = new mongoose.Schema(
     },
     mimeType: {
       type: String,
-      enum: ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+      enum: ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'text/plain'],
       required: true,
     },
     visibleToAll: {
