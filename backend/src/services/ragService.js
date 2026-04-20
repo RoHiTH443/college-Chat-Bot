@@ -3,7 +3,7 @@ const path = require('path');
 
 const DEFAULT_DATA_DIR = path.resolve(__dirname, '../../data');
 const SUPPORTED_EXTENSIONS = new Set(['.txt', '.md', '.json']);
-const RAG_MAX_FILES = Number.parseInt(process.env.RAG_MAX_FILES || '3', 10);
+const RAG_MAX_FILES = Number.parseInt(process.env.RAG_MAX_FILES || '0', 10);
 const RAG_MAX_CHUNKS = Number.parseInt(process.env.RAG_MAX_CHUNKS || '6', 10);
 const RAG_CHARS_PER_FILE = Number.parseInt(process.env.RAG_CHARS_PER_FILE || '1200', 10);
 const STOP_WORDS = new Set([
@@ -111,11 +111,6 @@ function scoreChunk(queryTokens, questionNormalized, chunkText, fileName) {
     score += 4;
   }
 
-  // Prefer FAQ-like files for user questions.
-  if ((fileName || '').toLowerCase().includes('faq')) {
-    score += 1.5;
-  }
-
   // Encourage high coverage of query tokens.
   score += matchedTokenCount / queryTokens.length;
 
@@ -208,19 +203,22 @@ async function retrieveRelevantContext(question) {
     return { context: '', sources: [] };
   }
 
-  const maxFiles = Number.isNaN(RAG_MAX_FILES) ? 3 : RAG_MAX_FILES;
+  const maxFiles = Number.isNaN(RAG_MAX_FILES) || RAG_MAX_FILES <= 0
+    ? files.length
+    : Math.min(RAG_MAX_FILES, files.length);
   const maxChars = Number.isNaN(RAG_CHARS_PER_FILE) ? 1200 : RAG_CHARS_PER_FILE;
 
-  // Build sources while keeping only top chunks per selected files.
+  // Build sources while keeping top chunks grouped by matched files.
   const byFile = new Map();
   for (const item of topChunks) {
-    if (!byFile.has(item.fileName) && byFile.size >= maxFiles) continue;
     const existing = byFile.get(item.fileName) || [];
     existing.push(item.chunk);
     byFile.set(item.fileName, existing);
   }
 
-  const sources = Array.from(byFile.entries()).map(([title, chunks]) => {
+  const limitedByFile = Array.from(byFile.entries()).slice(0, maxFiles);
+
+  const sources = limitedByFile.map(([title, chunks]) => {
     const snippet = chunks
       .join('\n\n')
       .slice(0, maxChars)

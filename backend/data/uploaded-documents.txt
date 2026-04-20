@@ -1131,3 +1131,36 @@ Description: ddddad
 Content:
 ddddad
 === DOCUMENT END ===
+
+=== DOCUMENT START ===
+Title: what is rank
+Category: Other
+Source: 1776673587520-what-is-rank.txt
+Description: what is rank?
+my rank is 17
+Content:
+what is rank?
+my rank is 17
+=== DOCUMENT END ===
+
+=== DOCUMENT START ===
+Title: what is score
+Category: Other
+Source: 1776674304569-what-is-score.txt
+Description: what is score?
+it is 5000
+Content:
+what is score?
+it is 5000
+=== DOCUMENT END ===
+
+=== DOCUMENT START ===
+Title: what is the name of hostel
+Category: Other
+Source: 1776674388038-what-is-the-name-of-hostel.txt
+Description: what is the name of hostel?
+ruby
+Content:
+what is the name of hostel?
+ruby
+=== DOCUMENT END ===

@@ -2,7 +2,7 @@ const ChatSession = require('../models/ChatSession');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 const { retrieveRelevantContext } = require('../services/ragService');
 
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3-flash-preview';
 
 function getGeminiModel() {
   const apiKey = process.env.GEMINI_API_KEY;

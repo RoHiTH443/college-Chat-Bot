@@ -20,7 +20,12 @@ subject in s6
 
 
 what is energy
-- it is nothing
+- Types of energy:
+-Kinetic energy → energy of moving objects
+-Potential energy → stored energy (like water stored in a dam)
+-Electrical energy → energy from electric current
+-Heat energy → energy from temperature
+-   Chemical energy → stored in food, batteries, fuels
 
 Placement Support Desk
 - Email: placements@university.edu
